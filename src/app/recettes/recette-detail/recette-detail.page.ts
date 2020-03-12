@@ -34,7 +34,29 @@ export class RecetteDetailPage implements OnInit {
 
   }
   suppressionRecette(){
-
+    this.alertCtrl.create({
+      message: 'Voulez-vous supprimer cette recette ?',
+      header: 'Etes-vous sur ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          handler: () => {
+          console.log('annuler est clique')
+          return
+          ;
+          }
+        },
+        {
+          text: 'Valider',
+          handler: () => {
+          this.recetteService.suppressionRecette(this.chargementRecette.id);
+          this.router.navigate(["/recettes"]);
+          }
+        }
+      ]
+}).then(alertElement => {
+  alertElement.present();
+});
   }
 
 }

@@ -45,8 +45,7 @@ export class RecettesService {
     this.recettes = this.recettes.filter( recette => {
       return recette.id !== recetteId;
     })  
-
-  }
+}
   constructor() { }
 }
 
